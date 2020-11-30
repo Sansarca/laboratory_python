@@ -1,0 +1,16 @@
+from PIL import Image
+
+width = 540
+height = 960
+
+with open('DS6.txt') as file:
+    pxl = file.readlines()
+
+
+img = Image.new(mode="RGB", size=(width, height), color=(255, 255, 255))
+
+for i in range(len(pxl)):
+  pos = tuple((list(map(int, pxl[i].strip('\n').split()))))
+  img.putpixel(pos, (0, 0, 0))
+
+img.save('end.png')
